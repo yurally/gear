@@ -76,7 +76,7 @@ break
 ;;
 
 "Log Node")
-journalctl -u gear-node -n 50
+journalctl -u gear-node -fn 30
 break
 ;;
 

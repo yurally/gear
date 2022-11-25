@@ -92,6 +92,10 @@ wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
 tar xvf gear-nightly-linux-x86_64.tar.xz
 rm gear-nightly-linux-x86_64.tar.xz
 sudo systemctl restart gear-node
+sleep 45
+sudo systemctl stop gear-node
+sudo cp /root/.local/share/gear/chains/gear_staging_testnet_v4/network/secret_ed25519 /root/.local/share/gear/chains/gear_stable_testnet/network/secret_ed25519
+sudo systemctl restart gear-node
 echo -e "\n\033[32m ================================= \033[0m"
 echo -e "\n\033[32m Node update completed \033[0m"
 echo -e "\n\033[32m ================================= \033[0m"

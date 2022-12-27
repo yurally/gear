@@ -21,7 +21,7 @@ options=(
 "Install and run Node"
 "Restart Node"
 "Log Node"
-"Update 25.11.22"
+"Update 27.12.22"
 "Update with purge-chain"
 "Delete Node"
 "Exit")
@@ -38,8 +38,9 @@ echo 'export GEARNODENAME='$GEARNODENAME >> $HOME/.bash_profile
 source ~/.bash_profile
 
 wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz && \
-tar xvf gear-nightly-linux-x86_64.tar.xz && \
+sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C /usr/bin && \
 rm gear-nightly-linux-x86_64.tar.xz
+sudo cp gear /usr/bin
 
 sudo tee <<EOF >/dev/null /etc/systemd/system/gear-node.service
 [Unit]
@@ -50,7 +51,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/
-ExecStart=/root/gear --name '$GEARNODENAME' --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0'
+ExecStart=/usr/bin/gear --name '$GEARNODENAME' --telemetry-url 'ws://telemetry-backend-shard.gear-tech.io:32001/submit 0'
 Restart=always
 RestartSec=3
 LimitNOFILE=10000
@@ -86,11 +87,12 @@ journalctl -u gear-node -fn 30
 break
 ;;
 
-"Update 25.11.22")
+"Update 27.12.22")
 sudo systemctl stop gear-node
 wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
 tar xvf gear-nightly-linux-x86_64.tar.xz
 rm gear-nightly-linux-x86_64.tar.xz
+sudo cp gear /usr/bin
 sudo systemctl restart gear-node
 sleep 45
 sudo systemctl stop gear-node
@@ -109,6 +111,7 @@ rm -rvf /root/.local/share/gear-node/chains/gear_staging_testnet_v3/db
 wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
 tar xvf gear-nightly-linux-x86_64.tar.xz
 rm gear-nightly-linux-x86_64.tar.xz
+sudo cp gear /usr/bin
 sudo systemctl restart gear-node
 sleep 30
 sudo systemctl stop gear-node

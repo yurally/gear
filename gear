@@ -22,7 +22,7 @@ options=(
 "Restart Node"
 "Log Node"
 "Update 27.12.22"
-"Update with purge-chain"
+"Update with purge-chain 29.12.22"
 "Delete Node"
 "Exit")
 select opt in "${options[@]}"
@@ -104,7 +104,7 @@ echo -e "\n\033[32m ================================= \033[0m"
 break
 ;;
 
-"Update with purge-chain")
+"Update with purge-chain 29.12.22")
 sudo systemctl stop gear-node
 /root/gear purge-chain -y
 rm -rvf /root/.local/share/gear-node/chains/gear_staging_testnet_v4/db

@@ -21,7 +21,7 @@ options=(
 "Install and run Node"
 "Restart Node"
 "Log Node"
-"Update 27.12.22"
+"Update"
 "Update with purge-chain 29.12.22"
 "Delete Node"
 "Exit")
@@ -87,7 +87,7 @@ journalctl -u gear-node -fn 30
 break
 ;;
 
-"Update 27.12.22")
+"Update")
 sudo systemctl stop gear-node
 wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
 sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C /usr/bin

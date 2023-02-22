@@ -106,7 +106,7 @@ break
 "Update with purge-chain 22.02.23")
 sudo systemctl stop gear-node
 /root/gear purge-chain -y
-rm -rvf /root/.local/share/gear-node/chains/gear_staging_testnet_v5/db
+rm -rvf /root/.local/share/gear/chains/gear_staging_testnet_v5/db
 wget https://get.gear.rs/gear-nightly-linux-x86_64.tar.xz
 sudo tar -xvf gear-nightly-linux-x86_64.tar.xz -C /usr/bin
 rm gear-nightly-linux-x86_64.tar.xz

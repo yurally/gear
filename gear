@@ -22,7 +22,7 @@ options=(
 "Restart Node"
 "Log Node"
 "Update"
-"Update with purge-chain 22.02.23"
+"Update with purge-chain 25.03.23"
 "Delete Node"
 "Exit")
 select opt in "${options[@]}"
